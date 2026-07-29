@@ -7,28 +7,12 @@
     section.classList.add('flow-section');
     section.dataset.flow = index % 2 ? 'right' : 'left';
     section.dataset.tone = tones[index % tones.length];
-    const trigger = document.createElement('span');
-    trigger.className = 'flow-trigger';
-    trigger.setAttribute('aria-hidden', 'true');
-    trigger._flowSection = section;
-    section.before(trigger);
+    const flow = document.createElement('span');
+    flow.className = 'section-flow';
+    flow.setAttribute('aria-hidden', 'true');
+    section.prepend(flow);
   });
   document.documentElement.classList.add('flow-ready');
-
-  if (location.hash) {
-    const target = document.querySelector(location.hash);
-    if (target?.classList.contains('flow-section')) {
-      target.classList.add('flow-visible', 'flow-skip');
-      addEventListener('load', () => {
-        const previousBehavior = document.documentElement.style.scrollBehavior;
-        document.documentElement.style.scrollBehavior = 'auto';
-        target.scrollIntoView({ block: 'start' });
-        requestAnimationFrame(() => {
-          document.documentElement.style.scrollBehavior = previousBehavior;
-        });
-      }, { once: true });
-    }
-  }
 
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
     sections.forEach(section => section.classList.add('flow-visible'));
@@ -38,10 +22,10 @@
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      entry.target._flowSection.classList.add('flow-visible');
+      entry.target.classList.add('flow-visible');
       observer.unobserve(entry.target);
     });
-  }, { threshold: 0, rootMargin: '0px 0px -16% 0px' });
+  }, { threshold: .04, rootMargin: '0px 0px -10% 0px' });
 
-  document.querySelectorAll('.flow-trigger').forEach(trigger => observer.observe(trigger));
+  sections.forEach(section => observer.observe(section));
 })();

@@ -2,16 +2,18 @@ main > section {
   position: relative;
 }
 
-.flow-trigger {
-  display: block;
-  width: 1px;
-  height: 1px;
-  margin-bottom: -1px;
-  pointer-events: none;
-}
-
 .section-flow {
-  display: none;
+  position: absolute;
+  z-index: 8;
+  top: 0;
+  left: 5vw;
+  right: 5vw;
+  height: 28px;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity .45s ease;
 }
 
 .section-flow::before {
@@ -85,27 +87,6 @@ main > section {
   filter: blur(0);
 }
 
-.flow-ready .flow-section {
-  opacity: 0;
-  clip-path: inset(0 0 100% 0);
-  will-change: clip-path, opacity;
-}
-
-.flow-ready .flow-section.flow-visible {
-  animation: section-curtain-reveal 1.15s cubic-bezier(.22, 1, .36, 1) both;
-}
-
-.flow-ready .flow-section.flow-visible:nth-of-type(even) {
-  animation-name: section-curtain-reveal-soft;
-}
-
-.flow-ready .flow-section.flow-skip {
-  opacity: 1;
-  clip-path: none;
-  animation: none;
-}
-
-
 @keyframes flow-marker-left {
   0% { left: 0; opacity: 0; transform: scale(.65); }
   18% { opacity: 1; }
@@ -117,35 +98,6 @@ main > section {
   18% { opacity: 1; }
   100% { right: calc(100% - 11px); opacity: 1; transform: scale(1); }
 }
-
-@keyframes section-curtain-reveal {
-  0% {
-    opacity: 0;
-    clip-path: inset(0 0 100% 0 round 28px);
-  }
-  22% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    clip-path: inset(0 0 0 0 round 0);
-  }
-}
-
-@keyframes section-curtain-reveal-soft {
-  0% {
-    opacity: 0;
-    clip-path: inset(100% 0 0 0 round 28px);
-  }
-  22% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-    clip-path: inset(0 0 0 0 round 0);
-  }
-}
-
 
 @media (max-width: 560px) {
   .section-flow { left: 1rem; right: 1rem; }
@@ -161,10 +113,4 @@ main > section {
   .section-flow::after { display: none; }
   .flow-ready .flow-section[data-flow] .reveal:not(.visible) { transform: none; filter: none; }
   .flow-ready .flow-section .reveal { transition: none; }
-  .flow-ready .flow-section,
-  .flow-ready .flow-section.flow-visible {
-    opacity: 1;
-    clip-path: none;
-    animation: none;
-  }
 }

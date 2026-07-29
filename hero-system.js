@@ -12,7 +12,7 @@
   const defaultContent = {
     kicker: 'THE TUTRONIX METHOD',
     title: 'Three kinds of support.<br>One connected plan.',
-    copy: 'All three are included in one approach built around the student, the schoolwork and the week ahead.'
+    copy: 'Each part works together around the student, the schoolwork and the week ahead.'
   };
   const content = {
     coaching: {
