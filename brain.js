@@ -15,7 +15,7 @@
     },
     initiation: {
       number: '03 / EXECUTIVE FUNCTION', title: 'Task initiation',
-      description: 'Crossing the gap between knowing what to do and actually beginning—especially when work feels large, vague, or uncomfortable.',
+      description: 'Crossing the gap between knowing what to do and actually beginning, especially when work feels large, vague, or uncomfortable.',
       example: 'A student turns “work on the essay” into a first action small enough to begin right now.'
     },
     time: {
@@ -24,8 +24,8 @@
       example: 'A student can see which days are crowded, begin preparation early, and leave room for the unexpected.'
     },
     followthrough: {
-      number: '05 / EXECUTIVE FUNCTION', title: 'Follow-through',
-      description: 'Staying with a plan through completion, review, and submission—even after the first burst of motivation fades.',
+      number: '05 / EXECUTIVE FUNCTION', title: 'Follow through',
+      description: 'Staying with a plan through completion, review, and submission, even after the first burst of motivation fades.',
       example: 'A student closes the loop: finish, check, submit, confirm, and reset for the next task.'
     }
   };
