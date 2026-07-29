@@ -1,0 +1,253 @@
+.method-path {
+  overflow: hidden;
+}
+
+.method-heading {
+  display: grid;
+  grid-template-columns: minmax(150px, .55fr) 2fr;
+  gap: 4vw;
+  align-items: end;
+  margin-bottom: clamp(3rem, 6vw, 6rem);
+}
+
+.method-heading h2 {
+  max-width: 1050px;
+  font-size: clamp(3rem, 6.2vw, 7rem);
+  letter-spacing: -.055em;
+}
+
+.method-heading div > p {
+  max-width: 500px;
+  margin: 1.5rem 0 0;
+  color: rgba(48, 64, 59, .72);
+}
+
+.method-track {
+  position: relative;
+  display: flex;
+  min-height: 520px;
+  border-top: 1px solid rgba(48, 64, 59, .28);
+  border-bottom: 1px solid rgba(48, 64, 59, .28);
+}
+
+.method-track::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 63px;
+  left: 2rem;
+  right: 2rem;
+  height: 2px;
+  background: rgba(48, 64, 59, .22);
+}
+
+.method-track::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  top: 63px;
+  left: 2rem;
+  width: calc((100% - 4rem) * var(--method-progress, 0));
+  height: 2px;
+  background: var(--orange);
+  transition: width .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+.method-stage {
+  position: relative;
+  flex: .78 1 0;
+  min-width: 0;
+  padding: 0 1.5rem 2rem;
+  background: transparent;
+  border-right: 1px solid rgba(48, 64, 59, .16);
+  transition: flex .6s cubic-bezier(.22, 1, .36, 1), background .45s ease;
+}
+
+.method-stage:last-child {
+  border-right: 0;
+}
+
+.method-stage.is-active {
+  flex: 1.45 1 0;
+  background: rgba(239, 210, 134, .2);
+}
+
+.method-stage button {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 126px;
+  display: grid;
+  grid-template-columns: 2rem 20px 1fr;
+  align-items: center;
+  gap: .75rem;
+  padding: 0;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.stage-number,
+.stage-kicker {
+  font: 500 .68rem DM Mono;
+  letter-spacing: .08em;
+}
+
+.stage-number {
+  position: relative;
+  z-index: 1;
+  background: var(--paper);
+}
+
+.stage-dot {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: 0 0 0 7px var(--paper);
+  transition: background .3s ease, transform .3s ease;
+}
+
+.method-stage.is-active .stage-dot {
+  background: var(--orange);
+  transform: scale(1.2);
+}
+
+.stage-label {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  width: max-content;
+  max-width: 100%;
+  padding: .25rem .55rem;
+  background: var(--paper);
+  font-weight: 700;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.method-stage.is-active .stage-label,
+.method-stage.is-active .stage-number {
+  background: #f6edd6;
+}
+
+.method-stage button:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 5px;
+}
+
+.stage-content {
+  height: calc(100% - 126px);
+  display: grid;
+  grid-template-columns: minmax(150px, .78fr) 1.22fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
+  opacity: 0;
+  transform: translateY(18px);
+  pointer-events: none;
+  transition: opacity .3s ease, transform .45s cubic-bezier(.22, 1, .36, 1);
+}
+
+.method-stage.is-active .stage-content {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  transition-delay: .15s;
+}
+
+.method-stage:not(.is-active) .stage-content {
+  visibility: hidden;
+}
+
+.method-stage .step-icon {
+  margin: 0 auto;
+  transform: scale(.82);
+  transition: transform .55s cubic-bezier(.22, 1, .36, 1);
+}
+
+.method-stage.is-active .step-icon {
+  transform: scale(1) rotate(-3deg);
+}
+
+.method-stage.is-active .target {
+  transform: scale(1) rotate(2deg);
+}
+
+.method-stage.is-active .route {
+  transform: scale(1) rotate(-2deg);
+}
+
+.method-stage.is-active .calendar b {
+  animation: method-card-in .45s ease both;
+}
+
+.method-stage.is-active .calendar b:nth-child(2) { animation-delay: .05s; }
+.method-stage.is-active .calendar b:nth-child(3) { animation-delay: .1s; }
+.method-stage.is-active .calendar b:nth-child(4) { animation-delay: .15s; }
+.method-stage.is-active .calendar b:nth-child(5) { animation-delay: .2s; }
+.method-stage.is-active .calendar b:nth-child(6) { animation-delay: .25s; }
+
+.stage-copy h3 {
+  max-width: 470px;
+  margin: .7rem 0 1rem;
+  font-size: clamp(2.2rem, 3.6vw, 4.6rem);
+  letter-spacing: -.045em;
+}
+
+.stage-copy > p:not(.stage-kicker) {
+  max-width: 520px;
+  margin: 0;
+  color: rgba(48, 64, 59, .78);
+}
+
+.stage-example {
+  display: block;
+  max-width: 520px;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(48, 64, 59, .26);
+  font-family: Newsreader, serif;
+  font-size: 1.12rem;
+  font-style: italic;
+}
+
+@keyframes method-card-in {
+  from { opacity: .2; transform: scale(.55); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 900px) {
+  .method-heading { grid-template-columns: 1fr; }
+  .method-track { display: block; min-height: 0; border-bottom: 0; }
+  .method-track::before,
+  .method-track::after { top: 0; bottom: 0; left: 39px; right: auto; width: 2px; height: auto; }
+  .method-track::after { height: calc(100% * var(--method-progress, 0)); transition: height .6s cubic-bezier(.22, 1, .36, 1); }
+  .method-stage { padding: 0 1rem 0 0; border-right: 0; border-bottom: 1px solid rgba(48, 64, 59, .2); }
+  .method-stage button { height: 96px; grid-template-columns: 2rem 20px 1fr; padding-left: 1rem; }
+  .method-stage.is-active { background: rgba(239, 210, 134, .16); }
+  .stage-content { height: auto; max-height: 0; grid-template-columns: 150px 1fr; overflow: hidden; padding: 0 1.5rem 0 4.6rem; }
+  .method-stage.is-active .stage-content { max-height: 560px; padding-bottom: 2rem; }
+}
+
+@media (max-width: 560px) {
+  .method-heading h2 { font-size: 3.35rem; }
+  .method-heading div > p { margin-top: 1rem; }
+  .stage-content { grid-template-columns: 1fr; }
+  .method-stage .step-icon { width: 135px; height: 135px; margin: .5rem 0; }
+  .method-stage .calendar { padding: 32px 11px 11px; }
+  .method-stage .calendar::before { top: 22px; }
+  .stage-copy h3 { font-size: 2.6rem; }
+  .stage-label { font-size: .88rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .method-stage,
+  .method-track::after,
+  .stage-content,
+  .method-stage .step-icon,
+  .stage-dot { transition: none; }
+  .method-stage.is-active .calendar b { animation: none; }
+}
