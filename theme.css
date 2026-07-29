@@ -44,3 +44,228 @@
 .button {
   background-color: #2d3733;
 }
+
+/* Parent-facing executive function pattern explorer */
+.outcomes {
+  align-items: start;
+}
+
+.outcomes-intro {
+  position: sticky;
+  top: 2rem;
+}
+
+.outcomes-intro h2 {
+  font-size: clamp(3rem, 5.5vw, 6.5rem);
+  letter-spacing: -0.055em;
+}
+
+.explore-prompt {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 390px;
+  margin-top: 2rem;
+  font-weight: 700;
+}
+
+.explore-prompt span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 32px;
+  height: 32px;
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+.pattern-explorer {
+  min-width: 0;
+}
+
+.outcome-tabs {
+  border-top: 1px solid rgba(45, 55, 51, 0.48);
+}
+
+.outcome-tabs button {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2rem 1fr 2rem;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(45, 55, 51, 0.48);
+  text-align: left;
+  cursor: pointer;
+}
+
+.outcome-tabs button span {
+  font: 500 0.68rem DM Mono;
+}
+
+.outcome-tabs button b {
+  font-size: clamp(1.45rem, 2.5vw, 2.6rem);
+  letter-spacing: -0.035em;
+  transition: transform 0.2s ease;
+}
+
+.outcome-tabs button i {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid;
+  border-radius: 50%;
+  font: normal 1.2rem Manrope;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.outcome-tabs button:hover b,
+.outcome-tabs button:focus-visible b {
+  transform: translateX(0.35rem);
+}
+
+.outcome-tabs button[aria-selected="true"] b {
+  font-family: Newsreader, serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.outcome-tabs button[aria-selected="true"] i {
+  color: var(--paper);
+  background: var(--ink);
+  transform: rotate(45deg);
+}
+
+.outcome-tabs button:focus-visible {
+  outline: 3px solid var(--cream);
+  outline-offset: 3px;
+}
+
+.pattern-detail {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+  padding: 2rem;
+  background: rgba(250, 247, 240, 0.72);
+  border: 1px solid rgba(45, 55, 51, 0.42);
+  box-shadow: 5px 5px 0 rgba(45, 55, 51, 0.16);
+  animation: detail-in 0.36s ease both;
+}
+
+.pattern-detail.is-changing {
+  animation: none;
+}
+
+.pattern-meter {
+  position: relative;
+  align-self: start;
+  text-align: center;
+}
+
+.pattern-meter svg {
+  width: 120px;
+  transform: rotate(-90deg);
+}
+
+.pattern-meter circle {
+  fill: none;
+  stroke: rgba(45, 55, 51, 0.14);
+  stroke-width: 7;
+}
+
+.pattern-meter .meter-progress {
+  stroke: var(--orange);
+  stroke-linecap: round;
+  stroke-dasharray: 327;
+  stroke-dashoffset: var(--meter-offset, 220);
+  transition: stroke-dashoffset 0.5s ease;
+}
+
+.pattern-meter > span {
+  position: absolute;
+  top: 34px;
+  left: 0;
+  right: 0;
+  font: 500 2rem Newsreader;
+}
+
+.pattern-meter small {
+  display: block;
+  margin-top: 0.4rem;
+  font: 500 0.62rem/1.4 DM Mono;
+  text-transform: uppercase;
+}
+
+.pattern-kicker,
+.pattern-columns span {
+  font: 500 0.66rem DM Mono;
+  letter-spacing: 0.08em;
+}
+
+.pattern-copy h3 {
+  margin: 0.4rem 0 1.5rem;
+  font-size: clamp(2rem, 3.4vw, 3.8rem);
+  letter-spacing: -0.045em;
+}
+
+.pattern-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.pattern-columns div {
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(45, 55, 51, 0.32);
+}
+
+.pattern-columns p {
+  margin-bottom: 0;
+  font-size: 0.92rem;
+}
+
+.progress-note {
+  margin: 1.5rem 0 0;
+  padding: 1rem 1.15rem;
+  background: var(--cream);
+  border-left: 4px solid var(--orange);
+  font-family: Newsreader, serif;
+  font-size: 1.12rem;
+}
+
+.progress-note b {
+  font-family: DM Mono;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@keyframes detail-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 850px) {
+  .outcomes-intro { position: static; }
+  .pattern-detail { grid-template-columns: 110px 1fr; padding: 1.5rem; }
+  .pattern-meter svg { width: 95px; }
+  .pattern-meter > span { top: 24px; }
+}
+
+@media (max-width: 560px) {
+  .outcomes-intro h2 { font-size: 3.25rem; }
+  .outcome-tabs button { grid-template-columns: 1.5rem 1fr 2rem; }
+  .outcome-tabs button b { font-size: 1.5rem; }
+  .pattern-detail { grid-template-columns: 1fr; gap: 1rem; padding: 1.25rem; }
+  .pattern-meter { display: grid; grid-template-columns: 95px 1fr; align-items: center; text-align: left; }
+  .pattern-meter > span { width: 95px; top: 25px; text-align: center; }
+  .pattern-meter small { margin: 0; }
+  .pattern-columns { grid-template-columns: 1fr; gap: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pattern-detail { animation: none; }
+}

@@ -6,7 +6,7 @@
   <title>Tutronix Method | Tutoring with a plan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="theme.css"><script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="theme.css"><script src="script.js" defer></script><script src="outcomes.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a><div class="cursor" aria-hidden="true"></div>
@@ -29,7 +29,22 @@
       </div>
     </section>
     <section class="planboard reveal"><div class="board-copy"><p class="section-no">THE WEEK, MADE VISIBLE</p><h2>Clarity before urgency.</h2><p>Together, student and tutor turn a crowded week into a realistic sequence of next steps.</p></div><div class="week" aria-label="Example weekly plan"><div class="tape"></div><div><b>MON</b><span class="chip coral">Algebra review</span><span class="chip yellow">Plan project</span></div><div><b>TUE</b><span class="chip blue">Science quiz</span></div><div><b>WED</b><span class="chip green">Draft essay</span><span class="chip coral">Tutor session</span></div><div><b>THU</b><span class="chip yellow">Finish slides</span></div><div><b>FRI</b><span class="chip blue">Submit ✓</span></div></div></section>
-    <section class="outcomes"><div class="section-head reveal"><p class="section-no">03 / WHAT CHANGES</p><h2>Not just better grades.<br><i>Better patterns.</i></h2></div><div class="outcome-list"><p class="reveal"><span>01</span>Organization</p><p class="reveal"><span>02</span>Prioritization</p><p class="reveal"><span>03</span>Task initiation</p><p class="reveal"><span>04</span>Time management</p><p class="reveal"><span>05</span>Follow-through</p></div></section>
+    <section class="outcomes" id="outcomes">
+      <div class="outcomes-intro reveal"><p class="section-no">03 / WHAT CHANGES</p><h2>Not just better grades.<br><i>Better patterns.</i></h2><p class="explore-prompt"><span aria-hidden="true">↗</span> Choose a skill to explore what progress can look like.</p></div>
+      <div class="pattern-explorer reveal" data-pattern-explorer>
+        <div class="outcome-tabs" role="tablist" aria-label="Executive function skills">
+          <button type="button" role="tab" aria-selected="true" aria-controls="pattern-detail" id="skill-organization" data-skill="organization"><span>01</span><b>Organization</b><i aria-hidden="true">+</i></button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="pattern-detail" id="skill-prioritization" data-skill="prioritization" tabindex="-1"><span>02</span><b>Prioritization</b><i aria-hidden="true">+</i></button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="pattern-detail" id="skill-initiation" data-skill="initiation" tabindex="-1"><span>03</span><b>Task initiation</b><i aria-hidden="true">+</i></button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="pattern-detail" id="skill-time" data-skill="time" tabindex="-1"><span>04</span><b>Time management</b><i aria-hidden="true">+</i></button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="pattern-detail" id="skill-followthrough" data-skill="followthrough" tabindex="-1"><span>05</span><b>Follow-through</b><i aria-hidden="true">+</i></button>
+        </div>
+        <article class="pattern-detail" id="pattern-detail" role="tabpanel" aria-labelledby="skill-organization" tabindex="0" aria-live="polite">
+          <div class="pattern-meter" aria-hidden="true"><span data-meter-number>01</span><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"></circle><circle class="meter-progress" cx="60" cy="60" r="52"></circle></svg><small>Practice,<br>not perfection</small></div>
+          <div class="pattern-copy"><p class="pattern-kicker" data-kicker>MAKE THE WORK VISIBLE</p><h3 data-title>From scattered to findable.</h3><div class="pattern-columns"><div><span>YOU MIGHT NOTICE</span><p data-notice>Assignments live in different places, materials go missing, or the student is surprised by work they already knew about.</p></div><div><span>WE PRACTICE</span><p data-practice>One trusted place for assignments, deadlines, materials, and the next action for every class.</p></div></div><p class="progress-note"><b>Progress can sound like:</b> <q data-progress>I know where everything is, and I know what comes next.</q></p></div>
+        </article>
+      </div>
+    </section>
     <section class="services" id="services"><div class="section-head reveal"><p class="section-no">04 / SERVICES</p><h2>Clear options for Miami families.</h2><p>Virtual or in person, each option can work with the Tutronix weekly planning structure.</p></div><div class="price-grid">
       <article class="price reveal"><p>Virtual sessions</p><h3>$125<small>/ hour</small></h3><p>Online academic tutoring, executive function planning and academic strategy support.</p><span>Available anywhere</span></article>
       <article class="price featured reveal"><p>In-person sessions</p><h3>$150<small>/ hour</small></h3><p>Personalized support for Miami families, depending on location and availability.</p><span>Miami, Florida</span></article>
