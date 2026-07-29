@@ -6,7 +6,7 @@
   <title>Tutronix Method | Tutoring with a plan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260729-1"><link rel="stylesheet" href="theme.css?v=20260729-4"><script src="script.js?v=20260729-1" defer></script><script src="outcomes.js?v=20260729-1" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20260729-1"><link rel="stylesheet" href="theme.css?v=20260729-4"><link rel="stylesheet" href="brain.css?v=20260729-1"><script src="script.js?v=20260729-1" defer></script><script src="brain.js?v=20260729-1" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a><div class="cursor" aria-hidden="true"></div>
@@ -29,19 +29,44 @@
       </div>
     </section>
     <section class="planboard reveal"><div class="board-copy"><p class="section-no">THE WEEK, MADE VISIBLE</p><h2>Clarity before urgency.</h2><p>Together, student and tutor turn a crowded week into a realistic sequence of next steps.</p></div><div class="week" aria-label="Example weekly plan"><div class="tape"></div><div><b>MON</b><span class="chip coral">Algebra review</span><span class="chip yellow">Plan project</span></div><div><b>TUE</b><span class="chip blue">Science quiz</span></div><div><b>WED</b><span class="chip green">Draft essay</span><span class="chip coral">Tutor session</span></div><div><b>THU</b><span class="chip yellow">Finish slides</span></div><div><b>FRI</b><span class="chip blue">Submit ✓</span></div></div></section>
-    <section class="outcomes" id="outcomes">
-      <div class="outcomes-intro reveal"><p class="section-no">03 / WHAT CHANGES</p><h2>Not just better grades.<br><i>Better patterns.</i></h2><p class="explore-prompt"><span aria-hidden="true">↗</span> Choose a skill to explore what progress can look like.</p></div>
-      <div class="pattern-explorer reveal" data-pattern-explorer>
-        <div class="outcome-tabs" role="tablist" aria-label="Executive function skills">
-          <button type="button" role="tab" aria-selected="true" aria-controls="pattern-detail" id="skill-organization" data-skill="organization"><span>01</span><b>Organization</b><i aria-hidden="true">+</i></button>
-          <button type="button" role="tab" aria-selected="false" aria-controls="pattern-detail" id="skill-prioritization" data-skill="prioritization" tabindex="-1"><span>02</span><b>Prioritization</b><i aria-hidden="true">+</i></button>
-          <button type="button" role="tab" aria-selected="false" aria-controls="pattern-detail" id="skill-initiation" data-skill="initiation" tabindex="-1"><span>03</span><b>Task initiation</b><i aria-hidden="true">+</i></button>
-          <button type="button" role="tab" aria-selected="false" aria-controls="pattern-detail" id="skill-time" data-skill="time" tabindex="-1"><span>04</span><b>Time management</b><i aria-hidden="true">+</i></button>
-          <button type="button" role="tab" aria-selected="false" aria-controls="pattern-detail" id="skill-followthrough" data-skill="followthrough" tabindex="-1"><span>05</span><b>Follow-through</b><i aria-hidden="true">+</i></button>
+    <section class="brain-section" id="outcomes" data-brain-explorer>
+      <div class="brain-heading reveal"><p class="section-no">03 / EXECUTIVE FUNCTION</p><h2>One brain.<br><i>Many working parts.</i></h2><p><span aria-hidden="true">↗</span> Explore the regions to see how each skill supports the school week.</p></div>
+      <div class="brain-stage reveal">
+        <div class="brain-visual">
+          <svg class="brain-map" viewBox="0 0 680 500" role="group" aria-labelledby="brain-map-title brain-map-desc">
+            <title id="brain-map-title">Interactive executive function brain</title>
+            <desc id="brain-map-desc">Five selectable regions represent organization, prioritization, task initiation, time management, and follow-through.</desc>
+            <path class="brain-shadow" d="M111 332C70 302 57 253 76 211C91 177 123 157 157 153C165 108 204 76 250 78C279 45 330 40 365 66C407 39 464 49 493 87C541 83 581 116 587 162C625 179 644 221 632 260C653 298 639 347 603 370C591 415 548 443 502 438C469 469 417 470 382 443C342 466 291 456 263 420C218 429 176 403 164 362C143 358 124 348 111 332Z"/>
+            <g class="brain-zone is-active" role="button" tabindex="0" data-skill="organization" aria-label="Organization" aria-pressed="true">
+              <path d="M99 306C72 277 68 236 86 205C102 176 132 161 164 162C185 165 205 177 216 194C228 214 228 239 218 260C206 285 180 302 153 310C133 316 113 314 99 306Z"/>
+              <text x="146" y="229"><tspan x="146">ORGANI-</tspan><tspan x="146" dy="20">ZATION</tspan></text>
+            </g>
+            <g class="brain-zone" role="button" tabindex="0" data-skill="prioritization" aria-label="Prioritization" aria-pressed="false">
+              <path d="M171 151C179 112 213 86 252 88C278 62 319 57 349 76C367 91 375 114 370 136C365 157 349 174 329 184C305 196 275 197 249 188C226 180 203 169 181 166C173 163 169 157 171 151Z"/>
+              <text x="272" y="128"><tspan x="272">PRIORI-</tspan><tspan x="272" dy="20">TIZATION</tspan></text>
+            </g>
+            <g class="brain-zone" role="button" tabindex="0" data-skill="initiation" aria-label="Task initiation" aria-pressed="false">
+              <path d="M230 200C248 181 274 174 299 181C325 188 344 209 350 235C356 260 346 287 326 304C306 321 278 329 252 322C226 315 207 294 200 269C193 244 207 220 230 200Z"/>
+              <text x="276" y="243"><tspan x="276">TASK</tspan><tspan x="276" dy="20">INITIATION</tspan></text>
+            </g>
+            <g class="brain-zone" role="button" tabindex="0" data-skill="time" aria-label="Time management" aria-pressed="false">
+              <path d="M383 81C417 57 466 66 490 96C530 92 565 120 573 159C582 181 578 205 564 223C550 242 527 254 503 257C478 260 453 251 436 233C420 215 416 190 420 167C423 145 414 122 394 109C382 101 376 90 383 81Z"/>
+              <text x="496" y="157"><tspan x="496">TIME</tspan><tspan x="496" dy="20">MANAGEMENT</tspan></text>
+            </g>
+            <g class="brain-zone" role="button" tabindex="0" data-skill="followthrough" aria-label="Follow-through" aria-pressed="false">
+              <path d="M362 272C381 250 409 240 437 246C465 253 488 275 495 303C503 330 494 360 473 379C450 400 416 408 386 398C357 389 335 364 330 334C326 311 338 289 362 272Z"/>
+              <text x="414" y="316"><tspan x="414">FOLLOW-</tspan><tspan x="414" dy="20">THROUGH</tspan></text>
+            </g>
+            <path class="brain-stem" d="M332 349C326 377 299 396 271 392C266 411 279 430 299 431C324 432 343 411 345 386C347 371 343 359 332 349Z"/>
+            <g class="brain-lines" aria-hidden="true"><path d="M126 196c24 11 35 33 29 57"/><path d="M199 120c31 5 49 21 54 44"/><path d="M288 102c25 9 38 26 37 50"/><path d="M461 108c-15 22-16 45-1 66"/><path d="M516 184c-22 8-36 24-40 46"/><path d="M385 293c20 11 30 29 27 51"/><path d="M247 232c22 8 35 23 38 43"/></g>
+          </svg>
+          <p class="brain-hint">Hover, click, or use Tab to explore <span aria-hidden="true">↗</span></p>
         </div>
-        <article class="pattern-detail" id="pattern-detail" role="tabpanel" aria-labelledby="skill-organization" tabindex="0" aria-live="polite">
-          <div class="pattern-meter" aria-hidden="true"><span data-meter-number>01</span><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"></circle><circle class="meter-progress" cx="60" cy="60" r="52"></circle></svg><small>Practice,<br>not perfection</small></div>
-          <div class="pattern-copy"><p class="pattern-kicker" data-kicker>MAKE THE WORK VISIBLE</p><h3 data-title>From scattered to findable.</h3><div class="pattern-columns"><div><span>YOU MIGHT NOTICE</span><p data-notice>Assignments live in different places, materials go missing, or the student is surprised by work they already knew about.</p></div><div><span>WE PRACTICE</span><p data-practice>One trusted place for assignments, deadlines, materials, and the next action for every class.</p></div></div><p class="progress-note"><b>Progress can sound like:</b> <q data-progress>I know where everything is, and I know what comes next.</q></p></div>
+        <article class="brain-detail" aria-live="polite">
+          <p class="brain-number" data-brain-number>01 / EXECUTIVE FUNCTION</p>
+          <h3 data-brain-title>Organization</h3>
+          <p data-brain-description>Keeping assignments, materials, and deadlines in a dependable system so important information does not have to live in working memory.</p>
+          <div class="brain-example"><span>IN THE SCHOOL WEEK</span><p data-brain-example>A student can see what is due, find what they need, and identify the next action for every class.</p></div>
         </article>
       </div>
     </section>
