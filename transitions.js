@@ -15,6 +15,21 @@
   });
   document.documentElement.classList.add('flow-ready');
 
+  if (location.hash) {
+    const target = document.querySelector(location.hash);
+    if (target?.classList.contains('flow-section')) {
+      target.classList.add('flow-visible', 'flow-skip');
+      addEventListener('load', () => {
+        const previousBehavior = document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = 'auto';
+        target.scrollIntoView({ block: 'start' });
+        requestAnimationFrame(() => {
+          document.documentElement.style.scrollBehavior = previousBehavior;
+        });
+      }, { once: true });
+    }
+  }
+
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
     sections.forEach(section => section.classList.add('flow-visible'));
     return;
