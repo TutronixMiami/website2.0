@@ -40,6 +40,8 @@
   height: 100%;
   overflow: visible;
   pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse 30% 38% at 54% 55%, transparent 0 96%, #000 100%);
+  mask-image: radial-gradient(ellipse 30% 38% at 54% 55%, transparent 0 96%, #000 100%);
 }
 
 .support-lines path {
@@ -80,7 +82,7 @@
 }
 
 .support-node.coaching {
-  top: 9%;
+  top: 4%;
   left: 1%;
   background: var(--blue);
   transform: rotate(-3deg);
@@ -161,18 +163,20 @@
 .support-core {
   position: absolute;
   z-index: 3;
-  left: 53%;
-  top: 56%;
-  width: min(clamp(300px, 22vw, 370px), 46%);
-  min-height: clamp(270px, 21vw, 330px);
+  left: 54%;
+  top: 55%;
+  width: min(clamp(330px, 25vw, 410px), 58%);
+  min-height: clamp(320px, 25vw, 390px);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 2rem;
+  padding: clamp(2.7rem, 3.2vw, 3.6rem) clamp(2.45rem, 2.8vw, 3.2rem);
   border: 1.5px solid var(--ink);
   border-radius: 48% 52% 46% 54% / 56% 45% 55% 44%;
   background: var(--yellow);
   box-shadow: 9px 10px 0 rgba(214, 127, 105, .55);
+  overflow: hidden;
+  isolation: isolate;
   transform: translate(-50%, -50%);
   transition: background .35s ease, border-radius .45s ease;
 }
@@ -189,19 +193,21 @@
 }
 
 .support-core h2 {
-  margin: .7rem 0;
-  font-size: clamp(1.7rem, 2.35vw, 2.7rem);
+  margin: .6rem 0;
+  font-size: clamp(1.75rem, 2.15vw, 2.45rem);
+  line-height: .98;
   letter-spacing: -.045em;
 }
 
 .support-core p {
   margin: 0;
-  font-size: clamp(.88rem, .78vw, 1rem);
-  line-height: 1.5;
+  font-size: clamp(.82rem, .72vw, .94rem);
+  line-height: 1.42;
 }
 
 .support-core > small {
-  margin-top: 1rem;
+  margin-top: .8rem;
+  line-height: 1.35;
   opacity: .62;
 }
 
@@ -237,7 +243,7 @@
   .support-icon { width: 44px; height: 44px; }
   .support-node b { font-size: .74rem; }
   .support-node small { font-size: .58rem; }
-  .support-core { top: auto; bottom: 8%; left: 50%; width: 84%; min-height: 250px; transform: translateX(-50%); }
+  .support-core { top: auto; bottom: 8%; left: 50%; width: 84%; min-height: 270px; padding: 2.6rem 2.35rem; transform: translateX(-50%); }
   .support-core h2 { font-size: 2rem; }
 }
 
