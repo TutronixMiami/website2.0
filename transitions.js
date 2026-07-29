@@ -7,10 +7,11 @@
     section.classList.add('flow-section');
     section.dataset.flow = index % 2 ? 'right' : 'left';
     section.dataset.tone = tones[index % tones.length];
-    const flow = document.createElement('span');
-    flow.className = 'section-flow';
-    flow.setAttribute('aria-hidden', 'true');
-    section.prepend(flow);
+    const trigger = document.createElement('span');
+    trigger.className = 'flow-trigger';
+    trigger.setAttribute('aria-hidden', 'true');
+    trigger._flowSection = section;
+    section.before(trigger);
   });
   document.documentElement.classList.add('flow-ready');
 
@@ -22,10 +23,10 @@
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      entry.target.classList.add('flow-visible');
+      entry.target._flowSection.classList.add('flow-visible');
       observer.unobserve(entry.target);
     });
-  }, { threshold: .04, rootMargin: '0px 0px -10% 0px' });
+  }, { threshold: 0, rootMargin: '0px 0px -16% 0px' });
 
-  sections.forEach(section => observer.observe(section));
+  document.querySelectorAll('.flow-trigger').forEach(trigger => observer.observe(trigger));
 })();
