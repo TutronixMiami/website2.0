@@ -1,0 +1,116 @@
+main > section {
+  position: relative;
+}
+
+.section-flow {
+  position: absolute;
+  z-index: 8;
+  top: 0;
+  left: 5vw;
+  right: 5vw;
+  height: 28px;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity .45s ease;
+}
+
+.section-flow::before {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(48, 64, 59, .28) 12%, rgba(48, 64, 59, .28) 88%, transparent);
+  transform: scaleX(.08);
+  transform-origin: var(--flow-origin, left);
+  transition: transform 1.05s cubic-bezier(.22, 1, .36, 1);
+}
+
+.section-flow::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 11px;
+  height: 11px;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  background: var(--flow-color, var(--orange));
+  opacity: 0;
+}
+
+.flow-section[data-flow="right"] .section-flow {
+  --flow-origin: right;
+}
+
+.flow-section.flow-visible .section-flow {
+  opacity: 1;
+}
+
+.flow-section.flow-visible .section-flow::before {
+  transform: scaleX(1);
+}
+
+.flow-section.flow-visible .section-flow::after {
+  animation: flow-marker-left 1.05s cubic-bezier(.22, 1, .36, 1) .08s both;
+}
+
+.flow-section[data-flow="right"].flow-visible .section-flow::after {
+  left: auto;
+  right: 0;
+  animation-name: flow-marker-right;
+}
+
+.flow-section[data-tone="blue"] { --flow-color: var(--blue); }
+.flow-section[data-tone="yellow"] { --flow-color: var(--yellow); }
+.flow-section[data-tone="green"] { --flow-color: var(--green); }
+.flow-section[data-tone="coral"] { --flow-color: var(--orange); }
+
+.flow-ready .flow-section[data-flow="left"] .reveal:not(.visible) {
+  transform: translate3d(-38px, 24px, 0);
+  filter: blur(2px);
+}
+
+.flow-ready .flow-section[data-flow="right"] .reveal:not(.visible) {
+  transform: translate3d(38px, 24px, 0);
+  filter: blur(2px);
+}
+
+.flow-ready .flow-section .reveal {
+  transition: opacity .8s ease, transform .9s cubic-bezier(.22, 1, .36, 1), filter .7s ease;
+}
+
+.flow-ready .flow-section .reveal.visible {
+  filter: blur(0);
+}
+
+@keyframes flow-marker-left {
+  0% { left: 0; opacity: 0; transform: scale(.65); }
+  18% { opacity: 1; }
+  100% { left: calc(100% - 11px); opacity: 1; transform: scale(1); }
+}
+
+@keyframes flow-marker-right {
+  0% { right: 0; opacity: 0; transform: scale(.65); }
+  18% { opacity: 1; }
+  100% { right: calc(100% - 11px); opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 560px) {
+  .section-flow { left: 1rem; right: 1rem; }
+  .flow-ready .flow-section[data-flow] .reveal:not(.visible) {
+    transform: translate3d(0, 26px, 0);
+    filter: blur(1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-flow { opacity: 1; }
+  .section-flow::before { transform: scaleX(1); transition: none; }
+  .section-flow::after { display: none; }
+  .flow-ready .flow-section[data-flow] .reveal:not(.visible) { transform: none; filter: none; }
+  .flow-ready .flow-section .reveal { transition: none; }
+}
