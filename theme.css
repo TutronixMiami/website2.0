@@ -1,0 +1,46 @@
+/* Softer, lower-contrast palette layered over the original visual system. */
+:root {
+  --ink: #2d3733;
+  --paper: #f1eee7;
+  --cream: #faf7f0;
+  --orange: #bd7966;
+  --blue: #9dabb7;
+  --yellow: #d4c797;
+  --green: #9eae9d;
+  --line: rgba(45, 55, 51, 0.15);
+}
+
+.hero {
+  background: radial-gradient(circle at 72% 42%, rgba(45, 55, 51, 0.08) 0 1.5px, transparent 2px) 0 0 / 25px 25px, var(--paper);
+}
+
+.nav-cta,
+.button {
+  box-shadow: 3px 3px 0 rgba(189, 121, 102, 0.72);
+}
+
+.button:hover,
+.nav-cta:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 rgba(189, 121, 102, 0.72);
+}
+
+.sun {
+  box-shadow: 6px 6px 0 rgba(189, 121, 102, 0.76);
+}
+
+.planboard {
+  transform: rotate(-0.35deg);
+  box-shadow: 8px 8px 0 rgba(189, 121, 102, 0.68);
+}
+
+.price {
+  box-shadow: 5px 5px 0 rgba(45, 55, 51, 0.68);
+}
+
+.marquee,
+.planboard,
+.nav-cta,
+.button {
+  background-color: #2d3733;
+}
